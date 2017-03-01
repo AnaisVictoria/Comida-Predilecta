@@ -37,5 +37,9 @@ class User extends Authenticatable
         return $this->hasMany('App/Venta');
     }
 
+        //Validacion de ingreso de un nombre, primera letra may, demas en minusculas
     
+    public function setnombreAttribute($value){
+        $this->attributes['nombre'] = ucfirst(strtoLower($value));
+    }
 }

@@ -18,4 +18,9 @@ class Cliente extends Model
     {
         return $this->hasMany('App/Venta');
     }
+        //Validacion de ingreso de nombre, primera letra may, demas en minusculas
+    
+    public function setnombreAttribute($value){
+        $this->attributes['nombre'] = ucfirst(strtoLower($value));
+    }
 }
